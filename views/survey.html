@@ -10,6 +10,10 @@
 <p>Name</p>
 <label><input type="text" placeholder="Please input your name" name="name"></label>
 <br>
+    <check if="{{ isset(@errors['name']) }}">
+        <span class="err">{{ @errors['name'] }}</span>
+    </check>
+    <br>
 
 <label><input type="checkbox"
               name="selection[]"
@@ -26,6 +30,10 @@
               value="Today is Monday">
     Today is Monday
 </label><br>
+    <check if="{{ isset(@errors['select']) }}">
+        <span class="err">{{ @errors['select'] }}</span>
+    </check>
+    <br>
 
 <input type="submit" value="Submit">
 </form>

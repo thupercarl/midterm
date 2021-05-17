@@ -21,17 +21,32 @@ $f3->route('GET /', function(){
     echo $view->render('views/home.html');
 });
 
-$f3->route('GET|POST /survey', function(){
-    var_dump($_POST);
+$f3->route('GET|POST /survey', function($f3){
+    //var_dump($_POST);
     //if the form has been submitted, add the data to session
     //and send the user to the summary page
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $_SESSION['name'] = $_POST['name'];
+        if(empty($_SESSION['name']))
+        {
+            $f3->set('errors["name"]', 'Please enter a name');
+        }
 
-        $_SESSION['selection'] = implode(", ", $_POST['selection']);
-        header('location: summary');
+        if(!empty($_POST['selection']))
+        {
+            $_SESSION['selection'] = implode(", ", $_POST['selection']);
+        }
+        else
+        {
+            $f3->set('errors["select"]', 'please select');
+        }
+
+        if (empty($f3->get('errors'))) {
+            header('location: summary');
+        }
+
     }
 
     //Display the survey page
