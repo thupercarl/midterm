@@ -6,29 +6,29 @@
 </head>
 <body>
 
+<form>
 <p>Name</p>
 <label><input type="text" placeholder="Please input your name" name="name"></label>
 <br>
 
 <label><input type="checkbox"
-              name="conds"
-              value="easy">
+              name="selection[]"
+              value="This midterm is easy">
     This midterm is easy
 </label><br>
 <label><input type="checkbox"
-              name="conds"
-              value="like">
+              name="selection[]"
+              value="I like midterms">
     I like midterms
 </label><br>
 <label><input type="checkbox"
-              name="conds"
-              value="monday">
+              name="selection[]"
+              value="Today is Monday">
     Today is Monday
 </label><br>
 
-<div>
-    <input type="submit" value="Submit">
-</div>
+<input type="submit" value="Submit">
+</form>
 
 </body>
 </html>
