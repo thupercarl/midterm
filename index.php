@@ -20,3 +20,23 @@ $f3->route('GET /', function(){
     $view = new Template();
     echo $view->render('views/home.html');
 });
+
+$f3->route('GET|POST /survey', function(){
+    //var_dump($_POST);
+    //if the form has been submitted, add the data to session
+    //and send the user to the summary page
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $_SESSION['name'] = $_POST['name'];
+
+        header('location: summary');
+    }
+
+    //Display the personal_info page
+    $view = new Template();
+    echo $view->render('views/survey.html');
+});
+
+//Run Fat-Free
+$f3->run();
