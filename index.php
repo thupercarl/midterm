@@ -22,9 +22,10 @@ $f3->route('GET /', function(){
 });
 
 $f3->route('GET|POST /survey', function(){
-    var_dump($_POST);
+    //var_dump($_POST);
     //if the form has been submitted, add the data to session
     //and send the user to the summary page
+
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $_SESSION['name'] = $_POST['name'];
@@ -32,6 +33,7 @@ $f3->route('GET|POST /survey', function(){
         $_SESSION['selection'] = implode(", ", $_POST['selection']);
         header('location: summary');
     }
+
     //Display the survey page
     $view = new Template();
     echo $view->render('views/survey.html');
