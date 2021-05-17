@@ -22,7 +22,7 @@ $f3->route('GET /', function(){
 });
 
 $f3->route('GET|POST /survey', function(){
-    //var_dump($_POST);
+    var_dump($_POST);
     //if the form has been submitted, add the data to session
     //and send the user to the summary page
 
