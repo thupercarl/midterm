@@ -1,0 +1,12 @@
+{
+  "name": "adavies/328/cupcakes",
+  "authors": [
+    {
+      "name": "Jake Donaldson",
+      "email": "Jdonaldson8@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
